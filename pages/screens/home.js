@@ -1,16 +1,20 @@
 import Image from "next/image";
+import { useRouter } from 'next/router';
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CreateIcon from "@material-ui/icons/Create";
 
+
 export default function Home() {
+  const router = useRouter();
   return (
     <div
       class="Container"
       style={{
         display: "flex",
-        width: "90%",
-        height: "90%",
+        width: "100%",
+        height: "100%",
+        marginTop: "20px",
         alignItems: "center",
         flexDirection: "column",
       }}
@@ -18,7 +22,7 @@ export default function Home() {
       <div
         style={{
           display: "flex",
-          width: "100%",
+          width: "95%",
           height: "100%",
           justifyContent: "space-between",
           alignItems: "center",
@@ -26,6 +30,7 @@ export default function Home() {
       >
         <Image src="/logo.png" width={236} height={60} />
         <Button
+        onClick={() => router.replace('/')}
           style={{
             display: "flex",
             width: "100%",
@@ -41,7 +46,7 @@ export default function Home() {
       <div
         style={{
           display: "flex",
-          width: "100%",
+          width: "95%",
           height: "100%",
           justifyContent: "space-between",
           alignItems: "center",

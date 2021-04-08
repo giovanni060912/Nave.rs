@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from 'next/router';
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
-  const [email, setEmail] = React.useState("");
+  const router = useRouter();
   const classes = useStyles();
   return (
     <div
@@ -51,13 +52,12 @@ export default function Login() {
         >
           <Image src="/logo.png" width={236} height={60} />
         </div>
-        <form
-          onSubmit={function (event) {
-            event.preventDefault();
-            console.log(" Fazendo uma submissão por meio do react".event);
-            console.log("value".value);
-          }}
-        >
+        <form style={{
+          display: "flex",
+          width: "100%",
+          flexDirection: "column",
+          alignItems: "center"
+        }}>
           <TextField
             required
             className={classes.textField}
@@ -66,7 +66,7 @@ export default function Login() {
             style={{
               marginTop: "60px",
               width: "100%",
-              maxWidth: "100%",
+              maxWidth: "80%",
             }}
             label="E-mail"
             variant="outlined"
@@ -80,17 +80,18 @@ export default function Login() {
               marginTop: "60px",
               marginBottom: "60px",
               width: "100%",
-              maxWidth: "100%",
+              maxWidth: "80%",
             }}
             label="Senha"
             variant="outlined"
           />
           <Button
+          onClick={() => router.replace('./screens/home')}
             variant="outlined"
             style={{
               display: "flex",
               width: "100%",
-              maxWidth: "100%",
+              maxWidth: "80%",
               marginBottom: "40px",
               backgroundColor: "#000000",
               color: "#ffffff",
